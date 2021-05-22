@@ -9,6 +9,8 @@ const Results = () => {
         .then(data => console.log(data));
 
     const results = [
+        <p>{recallData.results[0].ModelYear} {recallData.results[0].Make} {recallData.results[0].Model}</p>,
+
         <li>Manufacturer: {recallData.results[0].Manufacturer}</li>,
         <li>NHTSACampaignNumber: {recallData.results[0].NHTSACampaignNumber}</li>,
         <li>NHTSAActionNumber: {recallData.results[0].NHTSAActionNumber}</li>,
@@ -17,7 +19,10 @@ const Results = () => {
         <h3>Summary</h3>,
         <p>{recallData.results[0].Summary}</p>,
         <h3>Consequence</h3>,
-        <p>{recallData.results[0].Conequence}</p>
+        <p>{recallData.results[0].Conequence}</p>,
+        <h3>Notes</h3>,
+        <p>{recallData.results[0].Notes}</p>,
+
 
     ]
     console.log(recallData)
