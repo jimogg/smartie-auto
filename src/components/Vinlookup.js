@@ -12,7 +12,8 @@ const Vinlookup = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label> Vin Look-up<br />
+                <label>
+                    {/* Vin Look-up<br /> */}
                     <input type="text"
                         value={vinInput}
                         onChange={e => setVinInput(e.target.value)}

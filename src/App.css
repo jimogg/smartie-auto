@@ -35,7 +35,7 @@ body{
 }
 
 .left{
-
+  /* border-radius: 50px 0 0 50px; */
 }
 
 .make-model-year{
@@ -53,6 +53,7 @@ display:flex;
 flex-direction: column;
 padding:15px;
 background-color: white;
+border:none;
 }
 
 .footer{
@@ -62,6 +63,8 @@ background-color: white;
 .nav{
   grid-column: 1 / span 3;
   justify-content: center;
+  /* border-radius: 0 0 0 50px; */
+  /* background-color: rgb(157, 209, 255); */
 /* background-color: lightgray; */
   
 }

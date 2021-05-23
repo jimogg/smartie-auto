@@ -1,16 +1,15 @@
 import React from 'react';
 import { Route, Link } from "react-router-dom";
-import MakeModelYear from './MakeModelYear';
+import MakeModelYear from "./MakeModelYear";
+import Vinlookup from "./Vinlookup"
 
 const Left = () => {
     return (
         <div className="left-container">
-            {/* <h3>Search by:</h3> */}
-
-            <h4>VIN Number Lookup</h4>
-
-            <p><strong>By Make Model Year</strong></p>
+            <p><strong>Search Recalls by Make Model & Year</strong></p>
             <MakeModelYear />
+            <Vinlookup />
+
         </div>
     );
 };

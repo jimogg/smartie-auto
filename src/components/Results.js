@@ -2,6 +2,8 @@ import React from 'react';
 import recallData from "../recall-yr-mk-model.json";
 const Results = () => {
 
+    // by make model year
+    // api.nhtsa.gov/recalls/recallsByVehicle?make={MAKE}&model={MODEL}&modelYear={MODEL_YR}
     const url = `api.nhtsa.gov/vehicles/GetMakeForManufacturer/honda?format=json`
 
     fetch(url)
