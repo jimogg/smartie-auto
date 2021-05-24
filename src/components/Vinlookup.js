@@ -8,6 +8,19 @@ const Vinlookup = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         alert(`Submitting VIN: ${vinInput}`)
+
+        // const url = `api.nhtsa.gov/vehicles/DecodeVinExtended/5UXWX7C5*BA?format=json&modelyear=2011`
+        const url = `https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinExtended/${vinInput}?format=json&modelyear=2011`
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+
+
+
+            });
+
+
     }
     return (
         <div>
@@ -20,7 +33,7 @@ const Vinlookup = (props) => {
                         placeholder="Enter valid VIN number" />
                 </label>
                 <input type="submit" value="Submit" />
-                {/* <button>Search</button> */}
+
 
 
             </form>

@@ -5,9 +5,11 @@ const Nav = () => {
     return (
         <div>
             <ul>
-                <Link to="./Home">HOME</Link>
-                <Link to="./Search">RECALLS</Link>
-                <Link to="./About">ABOUT</Link>
+                <Link to="/Home">HOME |</Link>
+                {/* <Link to="/Search">RECALLS</Link> */}
+                <Link to="/Vinlookup">VIN LOOKUP |</Link>
+                <Link to="/MakeModelYear">MAKE/MODEL/YEAR |</Link>
+                <Link to="/About">ABOUT</Link>
                 {/* <Link to="./Home">Home</Link> */}
 
             </ul>
