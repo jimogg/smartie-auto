@@ -8,6 +8,7 @@ import Left from "./components/Left"
 import MakeModelYear from './components/MakeModelYear';
 import Home from './components/Home';
 
+
 function App() {
   return (
     <div className="container">
@@ -15,9 +16,10 @@ function App() {
       <nav className="nav"><Nav /></nav>
       <div className="left"><Left /></div>
       <div className="main">
-        <Route exact to="/"><Home /></Route>
-        <Route to="/Vinlookup"><Results /></Route>
-
+        {/* <Button /> */}
+        {/* <Route exact to="/"><Home /></Route> */}
+        {/* <Route to="/Vinlookup"><Results /></Route> */}
+        <MakeModelYear />
       </div>
       {/* <div className="right">Right</div> */}
       <div className="footer">Footer</div>

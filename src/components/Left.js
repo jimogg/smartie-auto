@@ -7,7 +7,7 @@ const Left = () => {
     return (
         <div className="left-container">
             <p><strong>Search Recalls by Make Model & Year</strong></p>
-            <MakeModelYear />
+            {/* <MakeModelYear /> */}
             <Vinlookup />
 
         </div>

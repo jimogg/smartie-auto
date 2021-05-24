@@ -1,0 +1,36 @@
+{
+    "Count": 6,
+    "Message": "Results returned successfully",
+    "Results": [
+        {
+            "ModelYear": "2010",
+            "Make": "ACURA",
+            "Model": "MDX"
+        },
+        {
+            "ModelYear": "2010",
+            "Make": "ACURA",
+            "Model": "RDX"
+        },
+        {
+            "ModelYear": "2010",
+            "Make": "ACURA",
+            "Model": "RL"
+        },
+        {
+            "ModelYear": "2010",
+            "Make": "ACURA",
+            "Model": "TL"
+        },
+        {
+            "ModelYear": "2010",
+            "Make": "ACURA",
+            "Model": "TSX"
+        },
+        {
+            "ModelYear": "2010",
+            "Make": "ACURA",
+            "Model": "ZDX"
+        }
+    ]
+}

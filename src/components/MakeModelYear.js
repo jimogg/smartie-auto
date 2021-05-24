@@ -1,64 +1,98 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import staticMakesData from "../makes-by-model-year.json"
+import modelYearData from "../model-years.json"
+import sampleModels from "../sample-makes-data.json"
+import sampleRecallData from "../recall-yr-mk-model.json"
 
 
+const mmyRecallUrl = `https://vpic.nhtsa.dot.gov/api`
+const makesOptions = staticMakesData.Results.map((element, i) => {
+    return (<option value={element.Make}>{element.Make}</option>);
+})
+
+const modelYears = modelYearData.Results.map((element) => {
+
+    return (<option value={element.ModelYear}>{element.ModelYear}</option>);
+})
+
+const modelOptions = sampleModels.Results.map((element) => {
+    return (<option value={element.Model}>{element.Model}</option>);
+})
 
 
-let makesOptions = staticMakesData.Results.map((element, i) => {
-
-
-    return <option value={i + 1}>{element.Make}</option>;
-}
-
-)
-// let makesOptions = 
+const recallResults =
+    <div>
+        <h3>{sampleRecallData.results[0].ModelYear} {sampleRecallData.results[0].Make} {sampleRecallData.results[0].Model}</h3>
+        <table>
+            <tr>
+                <td><strong>Manufacturer:</strong></td>
+                <td>{sampleRecallData.results[0].Manufacturer}</td>
+            </tr>
+            <tr>
+                <td><strong>NHTSACampaignNumber:</strong></td>
+                <td>{sampleRecallData.results[0].NHTSACampaignNumber}</td>
+            </tr>
+            <tr>
+                <td><strong>NHTSAActionNumber:</strong></td>
+                <td>{sampleRecallData.results[0].NHTSAActionNumber}</td>
+            </tr>
+            <tr>
+                <td><strong>ReportReceivedDate:</strong></td>
+                <td>{sampleRecallData.results[0].ReportReceivedDate}</td>
+            </tr>
+            <tr>
+                <td><strong>Component:</strong></td>
+                <td>{sampleRecallData.results[0].Component}</td>
+            </tr>
+        </table>
+        <h3>Recall Summary</h3>
+        <p>{sampleRecallData.results[0].Summary}</p>
+        <h3>Consequence</h3>
+        <p>{sampleRecallData.results[0].Conequence}</p>
+        <h3>Notes</h3>
+        <p>{sampleRecallData.results[0].Notes}</p>
+    </div>
 
 
 const MakeModelYear = () => {
 
-    let [makes, setMakes] = useState(makesOptions)
+    const [value, setValue] = useState("")
 
-    console.log(makesOptions)
-    setMakes = ({ makesOptions })
+    function handleChangeMake(event) {
 
+        console.log(event.target.value) //TEST
+        // if event.target.value === 0, alert to select a make
+    }
+    function handleSubmit() {
+        //Do the API fectch
+        // fetch(mmyRecallUrl)
+        //     .then(result => result.json)
+        //     .then(
 
+        //generate display
+        // )
 
-
-
-
+    }
 
     return (
         <div className="make-model-year">
-            <form>
-                {/* map over json data to fulfill options list */}
+            <form onSubmit={handleSubmit}>
                 <select>
+                    <option value="0">Select Year</option>
+                    {modelYears}
+                </select>
+                <select onChange={handleChangeMake}>
                     <option value="0">Select Make</option>
-                    <option>Audi</option>
-                    <option>Chevrolet</option>
-                    <option>GM</option>
-                    <option>Land Rover</option>
-                    <option>Subaru</option>
-                    <option>Volkswagen</option>
+                    {makesOptions}
                 </select>
                 <select>
                     <option value="0">Select Model</option>
-                    <option>Chevrolet</option>
-                    <option>GM</option>
-                    <option>Land Rover</option>
-                    <option>Subaru</option>
-                    <option>Volkswagen</option>
+                    {modelOptions}
                 </select>
-                <select>
-                    <option value="0">Select Year</option>
-                    <option>1995</option>
-                    <option>1996</option>
-                    <option>1997</option>
-                    <option>1998</option>
-                    <option>1999</option>
-                </select>
-
+                <input className="submit" type="submit" value="submit" />
             </form>
+            {recallResults}
         </div>
     );
 };
