@@ -1,12 +1,14 @@
 body{
-  /* font-family: 'Open Sans', sans-serif;
-  font-size: 1em; */
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
 }
 .container{
   box-sizing: border-box;
   display:grid;
   height:100vh;
-  grid-template-columns: 220px 2.5fr 1fr ;
+  grid-template-columns: 1fr 2.5fr 1fr ;
   grid-template-rows: 120px 45px 1fr;
   gap:5px;
   /* row-gap: 5px; */
@@ -16,7 +18,30 @@ body{
  
 }
 
+h1{
+  margin:0;
+}
 
+a{
+  text-decoration: none;
+}
+
+.nav-card{
+  background:rgb(103, 104, 110);
+  color:white;
+  width:200px;
+  height:25vh;
+  padding:5px 15px;
+  margin:0 10px 10px 10px;
+  border-radius: 0 0 15px  15px;
+}
+
+.nav-wrapper{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
 .container > *{
   display:grid;
   background-color: rgb(216, 216, 216);
@@ -36,14 +61,17 @@ body{
 }
 
 .left{
-  /* border-radius: 50px 0 0 50px; */
+  border-radius: 15px;
 }
 
-.make-model-year{
+.select-make-model-year{
 display:flex;
-flex-direction: column;
+/* flex-direction: column; */
+justify-content: space-evenly;
 }
-
+td{
+  border-bottom: 1px solid rgb(210, 210, 210);
+}
 .right{
 
 }
@@ -55,6 +83,7 @@ flex-direction: column;
 padding:15px;
 background-color: white;
 border:none;
+max-width:1200px;
 }
 
 .footer{
@@ -70,14 +99,16 @@ border:none;
   
 }
 
-.submit{
+/* .submit{
   background-color: blue;
   color:white;
-  /* height:28px; */
+  height: 30px;
   font-size: 1.2em;
   border:none;
-  padding:5px;
-}
+  padding:5px 15px 5px 15px;
+} */
+
+
 input{
   padding:5px;
 }
@@ -94,8 +125,24 @@ ul{
 
 /* ------------------- SMALLER SCREENS --------------------- */
 /* --------------------------------------------------------- */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1045px) {
+  .container{
+    box-sizing: border-box;
+    display:grid;
+    height:100vh;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* grid-template-columns: 200px 3fr 200px ; */
+    gap:5px;
 
+  }
+  .main{
+    background-color:rgb(230, 230, 230);
+    grid-column: 1 / span 3;
+  }
+  .left{
+    background-color: white;
+    grid-column: 1 / span 3;
+  }
 }
 
 
@@ -118,6 +165,9 @@ border-radius: 5px;
 /* background-color: rgb(45, 112, 133); */
 /* border: 2px solid rgb(50, 118, 207); */
 
+}
+td{
+  display: table-row;
 }
 
 .header{

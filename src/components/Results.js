@@ -14,9 +14,9 @@ const Results = () => {
         <p>{recallData.results[0].ModelYear} {recallData.results[0].Make} {recallData.results[0].Model}</p>,
 
         <li>Manufacturer: {recallData.results[0].Manufacturer}</li>,
-        <li>NHTSACampaignNumber: {recallData.results[0].NHTSACampaignNumber}</li>,
-        <li>NHTSAActionNumber: {recallData.results[0].NHTSAActionNumber}</li>,
-        <li>ReportReceivedDate: {recallData.results[0].ReportReceivedDate}</li>,
+        <li>NHTSA Campaign Number: {recallData.results[0].NHTSACampaignNumber}</li>,
+        <li>NHTSA Action Number: {recallData.results[0].NHTSAActionNumber}</li>,
+        <li>Report Received Date: {recallData.results[0].ReportReceivedDate}</li>,
         <li>Component: {recallData.results[0].Component}</li>,
         <h3>Summary</h3>,
         <p>{recallData.results[0].Summary}</p>,

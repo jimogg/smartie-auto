@@ -30,15 +30,15 @@ const recallResults =
                 <td>{sampleRecallData.results[0].Manufacturer}</td>
             </tr>
             <tr>
-                <td><strong>NHTSACampaignNumber:</strong></td>
+                <td><strong>NHTSA Campaign Number:</strong></td>
                 <td>{sampleRecallData.results[0].NHTSACampaignNumber}</td>
             </tr>
             <tr>
-                <td><strong>NHTSAActionNumber:</strong></td>
+                <td><strong>NHTSA Action Number:</strong></td>
                 <td>{sampleRecallData.results[0].NHTSAActionNumber}</td>
             </tr>
             <tr>
-                <td><strong>ReportReceivedDate:</strong></td>
+                <td><strong>Report Received Date:</strong></td>
                 <td>{sampleRecallData.results[0].ReportReceivedDate}</td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@ const MakeModelYear = () => {
 
     const [value, setValue] = useState("")
 
-    function handleChangeMake(event) {
+    function handleChange(event) {
 
         console.log(event.target.value) //TEST
         // if event.target.value === 0, alert to select a make
@@ -75,25 +75,25 @@ const MakeModelYear = () => {
 
     }
 
-    return (
-        <div className="make-model-year">
+    return (<div>
+        <div className="select-make-model-year">
             <form onSubmit={handleSubmit}>
-                <select>
+                <select onChange={handleChange}>
                     <option value="0">Select Year</option>
                     {modelYears}
                 </select>
-                <select onChange={handleChangeMake}>
+                <select onChange={handleChange}>
                     <option value="0">Select Make</option>
                     {makesOptions}
                 </select>
-                <select>
+                <select onChange={handleChange}>
                     <option value="0">Select Model</option>
                     {modelOptions}
                 </select>
-                <input className="submit" type="submit" value="submit" />
-            </form>
-            {recallResults}
-        </div>
+                <input type="submit" value="submit" />
+            </form></div>
+        {recallResults}
+    </div>
     );
 };
 

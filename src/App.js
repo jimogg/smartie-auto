@@ -7,18 +7,29 @@ import Vinlookup from './components/Vinlookup';
 import Left from "./components/Left"
 import MakeModelYear from './components/MakeModelYear';
 import Home from './components/Home';
+import NavCard from './components/NavCard'
 
 
 function App() {
   return (
     <div className="container">
-      <div className="header"><h1>Smartie Automotive Information</h1></div>
+      <div className="header"><h1>Smartie Automotive Information</h1>
+        {/* <p>Search for Automobile Recalls by VIN or Make/Model/Year.</p> */}
+      </div>
       <nav className="nav"><Nav /></nav>
       <div className="left"><Left /></div>
       <div className="main">
         {/* <Button /> */}
         {/* <Route exact to="/"><Home /></Route> */}
         {/* <Route to="/Vinlookup"><Results /></Route> */}
+        {/* <MakeModelYear /> */}
+        <div className="nav-wrapper">
+          <Link to="/Vinlookup">
+            <NavCard title="VIN Search" details="Look up by VIN Number." />
+          </Link>
+          <NavCard title="Information by Make, Model, and Year" details="Search vehicle data by make model and year of manufacture." />
+          <NavCard title="Recalls" details="Search for recall data compiled by the NHTSA" />
+        </div>
         <MakeModelYear />
       </div>
       {/* <div className="right">Right</div> */}
