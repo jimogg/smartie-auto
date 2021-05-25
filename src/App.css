@@ -32,9 +32,15 @@ a{
   color:white;
   width:200px;
   height:30vh;
+  min-height:220px;
   padding:5px 15px;
   margin:0 10px 10px 10px;
   border-radius: 0 0 15px  15px;
+}
+
+
+.nav-card:hover{
+  background-color:rgb(23, 93, 199);
 }
 
 .nav-wrapper{
@@ -61,7 +67,7 @@ a{
   /* text-align: center; */
 }
 
-.left{
+.aside{
   /* border-radius: 15px; */
 }
 
@@ -139,7 +145,7 @@ ul{
     background-color:rgb(230, 230, 230);
     grid-column: 1 / span 3;
   }
-  .left{
+  .aside{
     background-color: white;
     grid-column: 1 / span 3;
   }
@@ -173,8 +179,11 @@ td{
 .nav-card{
 height:fit-content;
 width:65vw;
-border-radius: 18px;;
+border-radius: 18px;
 
+}
+.nav-card:hover{
+  background-color:rgb(23, 93, 199)e;
 }
 
 .header{
@@ -183,7 +192,7 @@ border-radius: 18px;;
   grid-column: 1 / span 3;
 }
 
-.left{
+.aside{
   background-color: white;
   grid-column: 1 / span 3;
 }

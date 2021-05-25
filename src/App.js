@@ -4,7 +4,7 @@ import './App.css';
 import Nav from "./components/Nav";
 import Results from "./components/Results";
 import Vinlookup from './components/Vinlookup';
-import Left from "./components/Left"
+import Aside from "./components/Aside"
 import MakeModelYear from './components/MakeModelYear';
 import Home from './components/Home';
 import NavCard from './components/NavCard'
@@ -17,7 +17,7 @@ function App() {
         {/* <p>Search for Automobile Recalls by VIN or Make/Model/Year.</p> */}
       </div>
       <nav className="nav"><Nav /></nav>
-      <div className="left"><Left /></div>
+      <div className="aside"><Aside /></div>
       <div className="main">
         {/* <Button /> */}
         {/* <Route exact to="/"><Home /></Route> */}

@@ -14,8 +14,12 @@ const Left = () => {
                 <Link to="/Vinlookup">
                     <NavCard title="VIN Search" details="Look up by VIN Number." />
                 </Link>
-                <NavCard title="Information by Make, Model, and Year" details="Search vehicle data by make model and year of manufacture." />
-                <NavCard title="Recalls" details="Search for recall data compiled by the NHTSA" />
+                <Link to="">
+                    <NavCard title="Information by Make, Model, and Year" details="Search vehicle data by make model and year of manufacture." />
+                </Link>
+                <Link to="">
+                    <NavCard title="Recalls" details="Search for recall data compiled by the NHTSA" />
+                </Link>
             </div>
 
         </div>
