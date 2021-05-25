@@ -9,7 +9,7 @@ const Vinlookup = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`Submitting VIN: ${vinInput}`)
+        alert(`Submitting VIN: ${vinInput.toUpperCase()}`)
 
         // const url = `api.nhtsa.gov/vehicles/DecodeVinExtended/5UXWX7C5*BA?format=json&modelyear=2011`
         const url = `https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinExtended/${vinInput}?format=json&modelyear=2011`
@@ -46,11 +46,11 @@ const Vinlookup = (props) => {
                 </label>
                 <hr />
                 <p><strong>{vinInput.length}</strong> of <strong>{requiredVinLength}</strong> VIN characters entered. Your information is displayed below:</p>
-
+                <br />
 
                 <table style={{ width: "50vw" }}>
                     <tr>
-                        <td style={{ width: "50%" }}><strong>VIN NUMBER:</strong></td><td>{vinInput}</td>
+                        <td style={{ width: "50%" }}><strong>VIN NUMBER:</strong></td><td>{vinInput.toUpperCase()}</td>
                     </tr>
                     <tr>
                         <td><strong>YEAR:</strong></td>
@@ -58,6 +58,7 @@ const Vinlookup = (props) => {
                     </tr>
 
                 </table>
+                <br />
 
 
                 <input type="submit" value="Submit" />

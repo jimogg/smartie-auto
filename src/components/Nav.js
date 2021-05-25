@@ -5,12 +5,12 @@ const Nav = () => {
     return (
         <div>
             <ul>
-                <Link to="/">HOME |</Link>
+                <Link className="nav-link" to="/">Home</Link>
                 {/* <Link to="/Search">RECALLS</Link> */}
-                <Link to="/vinlookup">VIN LOOKUP |</Link>
-                <Link to="/make-model-year">MAKE/MODEL/YEAR |</Link>
-                <Link to="/about">ABOUT</Link>
-                {/* <Link to="./Home">Home</Link> */}
+                <Link className="nav-link" to="/vinlookup">VIN-Lookup</Link>
+                <Link className="nav-link" to="/make-model-year">Year-Make-Model Info</Link>
+                <Link className="nav-link" to="/recalls">Recalls</Link>
+                <Link className="nav-link" to="/about">About</Link>
 
             </ul>
         </div>

@@ -62,8 +62,8 @@ const recallResults =
 const MakeModelYear = () => {
 
     fetch(allModelYearsUrl)
-        .then(response => response.json)
-        .then(data => console.log(data));
+        .then(response => response.json())
+        .then(data => console.log({ data }));
 
 
     /* ----------------------------------------------------- */
@@ -74,7 +74,7 @@ const MakeModelYear = () => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        let fetchedData = await response;
+        let fetchedData = response.json();
 
         console.log(fetchedData);
     }
@@ -93,7 +93,9 @@ const MakeModelYear = () => {
         console.log(event.target.value) //TEST
         // if event.target.value === 0, alert to select a make
     }
-    function handleSubmit() {
+    function handleSubmit(event) {
+        event.preventDefault()
+        //reset the select boxes to default values
         //Do the API fectch
         // fetch(mmyRecallUrl)
         //     .then(result => result.json)
@@ -121,6 +123,7 @@ const MakeModelYear = () => {
                 </select>
                 <input type="submit" value="submit" />
             </form></div>
+        <br />
         {recallResults}
     </div>
     );
