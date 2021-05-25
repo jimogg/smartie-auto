@@ -23,14 +23,21 @@ function App() {
         {/* <Route exact to="/"><Home /></Route> */}
         {/* <Route to="/Vinlookup"><Results /></Route> */}
         {/* <MakeModelYear /> */}
-        <div className="nav-wrapper">
+        <div>
+          {/* <h2>This is some content</h2>
+          <p>Quis consectetur fugiat dolore ea sit aute nisi amet ipsum sint aliquip in ad occaecat. Dolor ad aliqua exercitation duis deserunt aliqua tempor quis eiusmod voluptate ea deserunt aliquip ad. Ipsum fugiat reprehenderit reprehenderit laborum exercitation anim laborum.</p> */}
+        </div>
+
+        {/* <div className="nav-wrapper">
           <Link to="/Vinlookup">
             <NavCard title="VIN Search" details="Look up by VIN Number." />
           </Link>
           <NavCard title="Information by Make, Model, and Year" details="Search vehicle data by make model and year of manufacture." />
           <NavCard title="Recalls" details="Search for recall data compiled by the NHTSA" />
-        </div>
+        </div> */}
+
         <MakeModelYear />
+
       </div>
       {/* <div className="right">Right</div> */}
       <div className="footer">Footer</div>
