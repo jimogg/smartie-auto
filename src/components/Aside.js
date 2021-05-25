@@ -11,14 +11,16 @@ const Left = () => {
             {/* <MakeModelYear /> */}
             {/* <Vinlookup /> */}
             <div className="nav-wrapper">
-                <Link to="/Vinlookup">
-                    <NavCard title="VIN Search" details="Look up by VIN Number." />
-                </Link>
-                <Link to="">
+                <Link to="make-model-year">
                     <NavCard title="Information by Make, Model, and Year" details="Search vehicle data by make model and year of manufacture." />
                 </Link>
-                <Link to="">
+
+
+                <Link to="recalls">
                     <NavCard title="Recalls" details="Search for recall data compiled by the NHTSA" />
+                </Link>
+                <Link to="vinlookup">
+                    <NavCard title="VIN Search" details="Look up by VIN Number." />
                 </Link>
             </div>
 

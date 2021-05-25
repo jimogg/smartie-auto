@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.css';
 import Nav from "./components/Nav";
 import Results from "./components/Results";
@@ -8,13 +8,14 @@ import Aside from "./components/Aside"
 import MakeModelYear from './components/MakeModelYear';
 import Home from './components/Home';
 import NavCard from './components/NavCard'
+import About from "./components/About"
 
 
 function App() {
   return (
     <div className="container">
-      <div className="header"><h1>Smartie Automotive Information</h1>
-        {/* <p>Search for Automobile Recalls by VIN or Make/Model/Year.</p> */}
+      <div className="header"><h1>Smartie Automotive Info</h1>
+        <p><small>Search Automobile Manufacturer Data, VIN details and Recalls information.</small></p>
       </div>
       <nav className="nav"><Nav /></nav>
       <div className="aside"><Aside /></div>
@@ -36,7 +37,28 @@ function App() {
           <NavCard title="Recalls" details="Search for recall data compiled by the NHTSA" />
         </div> */}
 
-        <MakeModelYear />
+        {/* <Router> */}
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/vinlookup">
+            <Vinlookup />
+          </Route>
+          <Route path="/make-model-year">
+            <MakeModelYear />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/recalls">
+            <Results />
+          </Route>
+        </Switch>
+        {/* </Router> */}
+
+
+
 
       </div>
       {/* <div className="right">Right</div> */}

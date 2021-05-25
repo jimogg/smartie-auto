@@ -7,6 +7,8 @@ import sampleRecallData from "../recall-yr-mk-model.json"
 
 
 const mmyRecallUrl = `https://vpic.nhtsa.dot.gov/api`
+const allModelYearsUrl = `https://api.nhtsa.gov/recalls/recallsByVehicle?make=acura&model=rdx&modelYear=2012`
+
 const makesOptions = staticMakesData.Results.map((element, i) => {
     return (<option value={element.Make}>{element.Make}</option>);
 })
@@ -25,26 +27,28 @@ const recallResults =
     <div>
         <h3>{sampleRecallData.results[0].ModelYear} {sampleRecallData.results[0].Make} {sampleRecallData.results[0].Model}</h3>
         <table>
-            <tr>
-                <td><strong>Manufacturer:</strong></td>
-                <td>{sampleRecallData.results[0].Manufacturer}</td>
-            </tr>
-            <tr>
-                <td><strong>NHTSA Campaign Number:</strong></td>
-                <td>{sampleRecallData.results[0].NHTSACampaignNumber}</td>
-            </tr>
-            <tr>
-                <td><strong>NHTSA Action Number:</strong></td>
-                <td>{sampleRecallData.results[0].NHTSAActionNumber}</td>
-            </tr>
-            <tr>
-                <td><strong>Report Received Date:</strong></td>
-                <td>{sampleRecallData.results[0].ReportReceivedDate}</td>
-            </tr>
-            <tr>
-                <td><strong>Component:</strong></td>
-                <td>{sampleRecallData.results[0].Component}</td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td><strong>Manufacturer:</strong></td>
+                    <td>{sampleRecallData.results[0].Manufacturer}</td>
+                </tr>
+                <tr>
+                    <td><strong>NHTSA Campaign Number:</strong></td>
+                    <td>{sampleRecallData.results[0].NHTSACampaignNumber}</td>
+                </tr>
+                <tr>
+                    <td><strong>NHTSA Action Number:</strong></td>
+                    <td>{sampleRecallData.results[0].NHTSAActionNumber}</td>
+                </tr>
+                <tr>
+                    <td><strong>Report Received Date:</strong></td>
+                    <td>{sampleRecallData.results[0].ReportReceivedDate}</td>
+                </tr>
+                <tr>
+                    <td><strong>Component:</strong></td>
+                    <td>{sampleRecallData.results[0].Component}</td>
+                </tr>
+            </tbody>
         </table>
         <h3>Recall Summary</h3>
         <p>{sampleRecallData.results[0].Summary}</p>
@@ -57,6 +61,31 @@ const recallResults =
 
 const MakeModelYear = () => {
 
+    fetch(allModelYearsUrl)
+        .then(response => response.json)
+        .then(data => console.log(data));
+
+
+    /* ----------------------------------------------------- */
+    async function myFetch() {
+        let response = await fetch(`https://api.nhtsa.gov/recalls/recallsByVehicle?make=acura&model=rdx&modelYear=2012`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let fetchedData = await response;
+
+        console.log(fetchedData);
+    }
+
+    myFetch()
+        .catch(e => {
+            console.log('There has been a problem with your fetch operation: ' + e.message);
+        });
+
+
+    /* ----------------------------------------------------- */
     const [value, setValue] = useState("")
 
     function handleChange(event) {
