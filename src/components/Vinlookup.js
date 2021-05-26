@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 const Vinlookup = (props) => {
     const requiredVinLength = 17
     const requiredYearLength = 4
+
     const [vinInput, setVinInput] = useState("")
     const [vinYear, setVinYear] = useState("")
     const [tableItems, setTableItems] = useState("")
@@ -22,16 +23,12 @@ const Vinlookup = (props) => {
                     }
 
                 })
-
                 return (<tr>{vinData}</tr>)
             })
             .then(data => {
                 setTableItems(data)
             })
     }
-
-
-
 
     return (
         <div>
@@ -77,9 +74,6 @@ const Vinlookup = (props) => {
             <h3>RESULTS</h3>
             <hr />
             <table><tbody>{tableItems}</tbody></table>
-
-
-
 
         </div>
     );

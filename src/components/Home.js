@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div>
             <h2>Welcome to Smartie Automotive Tools</h2>
-            <div className="welcome-splash" ><h2>&nbsp;AutoDATA</h2>
+            <div className="welcome-splash" ><h2>&nbsp;Welcome!</h2>
                 {/* <p>&nbsp;Automotive Recalls, VIN Decoder</p> */}
             </div>
             <p>This project features a user interface built using react js and node. It will be added upon. However, please feel free to use the VIN decoder to see a live implementation of an API fetch. Use your own VIN number or try the samples below. </p>
