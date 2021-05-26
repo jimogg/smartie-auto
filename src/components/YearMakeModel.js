@@ -27,35 +27,65 @@ const YearMakeModel = (props) => {
 
 
     function fetcher(url) {
-        let jsonData
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                jsonData = data
-                console.log(data)
+        let jsonData =
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
 
-            });
+                    console.log(data)
+                    return data
+
+
+                });
         console.log(jsonData)
         return jsonData;
     }
     //---------------------- years
-    fetch(url)
+    let modelYears
+    let options
+    fetch(yearsUrl)
         .then(response => response.json())
         .then(data => {
 
-            console.log(data)
+            // console.log(data)
+            data.Results.map((element) => {
+                console.log(element)
 
+                return options = <option value={element.ModelYear}>{element.ModelYear}</option>;
+
+            })
+            return options
         });
+
+    //--------------------- attempt async
+    async function fetchy(url) {
+        let response = await fetch(url)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        console.log(response)
+        modelYears = await Promise.resolve(response)
+
+        console.log(modelYears)
+    }
+    fetchy().catch(e => { console.log("error occured" + e.message) })
+
+    fetchy(yearsUrl)
+    // ---------------------- end async
+
+
+    console.log(modelYears)
     //--------------- end years
     let makesOptions = ""
     let modelOptions = ""
     console.log(fetcher(yearsUrl))
-    const modelYears = fetcher(yearsUrl)
+    // const modelYears = fetcher(yearsUrl)
     // .Results.map((element) => {
 
     //     return (<option value={element.ModelYear}>{element.ModelYear}</option>);
     // })
-    console.log(modelYears)
+    // console.log(modelYears)
 
     function handleChange(event) {
 

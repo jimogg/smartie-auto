@@ -9,13 +9,14 @@ import MakeModelYear from './components/MakeModelYear';
 import Home from './components/Home';
 import NavCard from './components/NavCard'
 import About from "./components/About"
+import Recalls from "./components/Recalls"
 
 
 function App() {
   return (
     <div className="container">
       <div className="header"><h1>Smartie Automotive Info</h1>
-        <p><small>Search Automobile Manufacturer Data, VIN details and Recalls information.</small></p>
+        <p><small>Search Automobile Manufacturer Data, VIN details and Recall information.</small></p>
       </div>
       <nav className="nav"><Nav /></nav>
       <div className="aside"><Aside /></div>
@@ -52,7 +53,7 @@ function App() {
             <About />
           </Route>
           <Route path="/recalls">
-            <Results />
+            <Recalls />
           </Route>
         </Switch>
         {/* </Router> */}
