@@ -8,6 +8,7 @@ Accessibility is enhance throughout by following best practices for screen reade
 - React
 - JSX
 - Javascript
+- API
 
 ## User Stories
 - As a user I would like to be able to search for data on my vehicle by VIN number.
