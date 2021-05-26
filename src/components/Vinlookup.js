@@ -8,23 +8,7 @@ const Vinlookup = (props) => {
     const [vinYear, setVinYear] = useState("")
     const [tableItems, setTableItems] = useState("")
 
-    let tableRow = ""
-    let aaargh
-    // function populateTable(data) {
-
-    //     console.log(data)
-    //     let tableItems = data.map((data) => {
-
-    //         return (<tr><td>{data.Variable}</td><td>{data.Value}</td></tr>)
-
-    //     })
-    //     console.log(tableItems)
-    //     return tableRow = tableItems
-
-    // }
-
-
-    async function handleSubmit(event) {
+    function handleSubmit(event) {
         event.preventDefault();
         alert(`Submitting VIN: ${vinInput.toUpperCase()}`)
 
@@ -41,11 +25,11 @@ const Vinlookup = (props) => {
 
                     // console.log(<option value={element.ModelYear}>{element.ModelYear}</option>)
                     // setTableItems({ element.Value })
-                    return ([element.Variable, element.Value])
+                    return (<tr><td><strong>{element.Variable}</strong></td> <td>{element.Value}</td></tr>)
                 })
 
                 console.log(modelYears)
-                return (<div>{modelYears}</div>)
+                return (<tr>{modelYears}</tr>)
             })
             .then(data => {
                 setTableItems(data)
@@ -97,8 +81,10 @@ const Vinlookup = (props) => {
             </form>
 
 
-            {/* {tableOfResults} */}
-            {tableItems}
+            {/* display a table of results on the screen */}
+            <h3>RESULTS</h3>
+            <table><tbody> {tableItems}</tbody></table>
+
 
 
 
