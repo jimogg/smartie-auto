@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Smartie Automotive App
+This app aims to provide an easy way for users to decode VIN numbers for details on a specific vehicle. There are future plans, as well, to incorporate recall data searchable by VIN or my Year/Make/Model. The data is fetched via API calls to the NHTSA server where the public data is stored. The returned data is parsed and formatted for tabular display.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Accessibility is enhance throughout by following best practices for screen readers and tablet/mobile platforms are accommodated by dynamic styling which rearranges screen items appropriately for ease of navigation and readability. React hooks are employed to update the UI with useful information, for example to dynamically show a user how many of the 17 VIN characters have been entered as they type.
 
-## Available Scripts
+## Technologies used
+- Node
+- React
+- JSX
+- Javascript
 
-In the project directory, you can run:
+## User Stories
+- As a user I would like to be able to search for data on my vehicle by VIN number.
+- As a user I would like to be able to easily navigate the app.
+- As a user I would like it to work equally well on my phone or tablet.
 
-### `npm start`
+## ScreenShots
+Large Desktop Moniotor
+![Screen Shot 2021-05-26 at 9 46 48 AM](https://user-images.githubusercontent.com/81941464/119670929-5086eb80-be07-11eb-8d99-5870eca64666.png)
+ 
+Tablets & Mobile  
+![Screen Shot 2021-05-26 at 8 05 45 AM](https://user-images.githubusercontent.com/81941464/119670154-a7d88c00-be06-11eb-8b87-cd5d12a5b120.png)
+![Screen Shot 2021-05-26 at 9 55 21 AM](https://user-images.githubusercontent.com/81941464/119672443-9abc9c80-be08-11eb-8e9a-87f98a9c683f.png)
+![Screen Shot 2021-05-26 at 8 07 42 AM](https://user-images.githubusercontent.com/81941464/119670282-c2ab0080-be06-11eb-8ff1-56f5554e2688.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Challenges
+Errors. The biggest headache when developing apps using APIs and asynchronous fetches must be the disparate and unpredictable nature of APIs. Developers are at the mercy of (seemingly) sadistic API owners, with no access server-side. Joking aside, non key APIs like those at the NHTSA can sometimes be problematic when developing an app. I specifically wrestled with CORS errors which would not allow the browser to retrieve the json data at the fetch request. Even when disabled, fetching from localhost seemed to work... and then break.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Additional Features/ wish list
+The completed app will have an ability to retrieve and display any recall data, manufaturer data by Year/Make/Model and VIN decoding. Some nifty work with the data to allow users to make comparisons between data sets is an interesting and challenging possibility.
