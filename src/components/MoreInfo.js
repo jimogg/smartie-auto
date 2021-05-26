@@ -6,21 +6,17 @@ import YearMakeModel from "./YearMakeModel";
 
 
 
-const Recalls = () => {
+const MoreInfo = () => {
 
 
 
     function handleSubmit(event) {
         event.preventDefault()
-        alert(`You submitted!`)
-        console.log(event)
+        // alert(`You submitted!`)
+
 
         //reset the select boxes to default values
         //Do the API fectch
-        // fetch(mmyRecallUrl)
-        //     .then(result => result.json)
-        //     .then(
-
         //generate display
         // )
 
@@ -37,4 +33,4 @@ const Recalls = () => {
     );
 };
 
-export default Recalls;
+export default MoreInfo;

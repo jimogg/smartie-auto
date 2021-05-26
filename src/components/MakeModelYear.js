@@ -76,12 +76,12 @@ const MakeModelYear = () => {
 
         let fetchedData = response.json();
 
-        console.log(fetchedData);
+        // console.log(fetchedData);
     }
 
     myFetch()
         .catch(e => {
-            console.log('There has been a problem with your fetch operation: ' + e.message);
+            // console.log('There has been a problem with your fetch operation: ' + e.message);
         });
 
 
@@ -90,7 +90,7 @@ const MakeModelYear = () => {
 
     function handleChange(event) {
 
-        console.log(event.target.value) //TEST
+
         // if event.target.value === 0, alert to select a make
     }
     function handleSubmit(event) {

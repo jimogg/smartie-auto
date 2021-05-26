@@ -14,9 +14,11 @@ import { useState, useEffect } from 'react'
 
 // const mmyRecallUrl = `https://vpic.nhtsa.dot.gov/api`
 // const allModelYearsUrl = `https://api.nhtsa.gov/recalls/recallsByVehicle?make=acura&model=rdx&modelYear=2012`
-let year, make, model = ""
+let year
+let make
+let model
 
-const yearsUrl = `https://api.nhtsa.gov/products/vehicle/modelYears?issueType=r https://api.nhtsa.gov/products/vehicle/modelYears?issueType=r `
+const yearsUrl = `https://api.nhtsa.gov/products/vehicle/modelYears?issueType=r`
 const makesUrl = `https://api.nhtsa.gov/products/vehicle/makes?modelYear=${year}&issueType=r`
 const modelsUrl = `https://api.nhtsa.gov/products/vehicle/models?modelYear=${year}&make=${make}&issueType=r`
 
@@ -25,73 +27,78 @@ const YearMakeModel = (props) => {
 
     const [validator, setValidator] = useState("original state. Testing 123")
 
+    const [year, setYear] = useState(0)
+    const [make, setMake] = useState("")
+    const [model, setModel] = useState("")
 
-    function fetcher(url) {
-        let jsonData =
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
+    const [modelYears, setModelYears] = useState("")
 
-                    console.log(data)
-                    return data
+    function fetcher(url, stateToUpdate) {
+
+        if (stateToUpdate === "year") {
+            setYear()
+        }
+        else if (stateToUpdate === "make") {
+
+        }
+        else {
+
+        }
 
 
-                });
-        console.log(jsonData)
-        return jsonData;
+
+
+        fetch(yearsUrl)
+            .then(response => response.json())
+            .then(data => {
+
+
+                // map here
+                return data
+
+            })
+            .then();
+
+        return
     }
     //---------------------- years
-    let modelYears
-    let options
 
 
 
     fetch(yearsUrl)
         .then(response => response.json())
         .then(data => {
+            let arr = []
 
-            // console.log(data)
-            data.Results.map((element) => {
-                console.log(element)
+            const yearsAvail = data.Results.map((element) => {
 
-                return options = <option value={element.ModelYear}>{element.ModelYear}</option>;
+                // return arr.push(element.ModelYear)
+                // return arr.push();
+                return (<option value={element.ModelYear}>{element.ModelYear}</option>)
+
 
             })
-            return options
-        });
 
-    //--------------------- attempt async
-    async function fetchy(url) {
-        let response = await fetch(url)
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        console.log(response)
-        modelYears = await Promise.resolve(response)
-
-        console.log(modelYears)
-    }
-    fetchy().catch(e => { console.log("error occured" + e.message) })
-
-    fetchy(yearsUrl)
-    // ---------------------- end async
+            // return arr
+            return yearsAvail
+        })
+        .then(data => {
+            setModelYears(data)
+        })
 
 
-    console.log(modelYears)
+
+
+
     //--------------- end years
     let makesOptions = ""
     let modelOptions = ""
-    console.log(fetcher(yearsUrl))
-    // const modelYears = fetcher(yearsUrl)
-    // .Results.map((element) => {
 
-    //     return (<option value={element.ModelYear}>{element.ModelYear}</option>);
-    // })
-    // console.log(modelYears)
 
     function handleChange(event) {
-
+        setYear(event.target[0].value)
+        setMake(event.target[1].value)
+        setModel(event.target[2].value)
 
 
 
@@ -103,7 +110,7 @@ const YearMakeModel = (props) => {
 
         else if (event.target[0].value !== 0 && event.target[1].value === 0) {
             setValidator("Please select a Make.")
-            year = event.target[0].value
+            setYear(event.target[0].value)
             modelOptions = fetcher(makesUrl).Results.map((element, i) => {
                 return (<option value={element.Make}>{element.Make}</option>);
 
@@ -116,13 +123,13 @@ const YearMakeModel = (props) => {
             makesOptions = fetcher(modelsUrl).Results.map((element) => {
                 return (<option value={element.Model}>{element.Model}</option>);
             })
-            make = event.target[1].value
+            setMake(event.target[1].value)
         }
         else {
             setValidator("Press the Submit button to get your results.")
-            model = event.target[2].value
+            setModel(event.target[2].value)
         }
-        console.log(event.target[0].value, event.target[0].value, event.target[0].value) //TEST
+        // console.log(event.target[0].value, event.target[0].value, event.target[0].value) //TEST
         // if event.target.value === 0, alert to select a make
     }
 

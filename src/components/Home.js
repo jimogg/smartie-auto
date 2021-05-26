@@ -2,13 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import Card from "./NavCard"
 
+
 const Home = () => {
     return (
         <div>
-            <h2>This is the HOME component.</h2>
-            <div style={{ width: "70vw", height: "30vh", backgroundColor: "#4CAF50" }}>This div</div>
-            <p>Officia proident ea fugiat magna veniam magna deserunt irure. Aliqua anim non duis sunt dolor nulla tempor id ad. Culpa ea nulla adipisicing irure proident magna aute. Qui nisi aliqua non sint labore Lorem deserunt deserunt eiusmod laborum. In consectetur enim exercitation velit elit ad excepteur ex. </p>
-            <p>Do ad commodo sint reprehenderit incididunt cupidatat reprehenderit reprehenderit ut est. Commodo sunt dolore deserunt voluptate. Id tempor aliqua nisi qui labore sunt quis anim. Nisi ullamco veniam exercitation incididunt sit laboris. Reprehenderit veniam aute voluptate minim.</p>
+            <h2>Welcome to Smartie Automotive Tools</h2>
+            <div className="welcome-splash" ><h2>&nbsp;AutoDATA</h2>
+                {/* <p>&nbsp;Automotive Recalls, VIN Decoder</p> */}
+            </div>
+            <p>This site is under maintenance. However, please feel free to use the VIN decoder to look up the details of any VIN number. </p>
+            <p>Sample VINS:</p> <p>3VWC17AU8FM514802 - Model Year 2015<p>4T1BF1FK7CU103205 - Model Year 2012</p><p>2T2BK1BA3CC134733 - Model Year 2012</p>
+
+            </p>
         </div>
     );
 };
