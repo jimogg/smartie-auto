@@ -6,22 +6,54 @@ const Vinlookup = (props) => {
     const requiredYearLength = 4
     const [vinInput, setVinInput] = useState("")
     const [vinYear, setVinYear] = useState("")
+    const [tableItems, setTableItems] = useState("")
 
-    const handleSubmit = (event) => {
+    let tableRow = ""
+    let aaargh
+    // function populateTable(data) {
+
+    //     console.log(data)
+    //     let tableItems = data.map((data) => {
+
+    //         return (<tr><td>{data.Variable}</td><td>{data.Value}</td></tr>)
+
+    //     })
+    //     console.log(tableItems)
+    //     return tableRow = tableItems
+
+    // }
+
+
+    async function handleSubmit(event) {
         event.preventDefault();
         alert(`Submitting VIN: ${vinInput.toUpperCase()}`)
 
         // const url = `api.nhtsa.gov/vehicles/DecodeVinExtended/5UXWX7C5*BA?format=json&modelyear=2011`
-        const url = `https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinExtended/${vinInput}?format=json&modelyear=2011`
+        const url = `https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinExtended/${vinInput}?format=json&modelyear=${vinYear}}`
         fetch(url)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
 
 
+                const modelYears = data.Results.map((element) => {
+                    console.log(element)
 
-            });
+                    // console.log(<option value={element.ModelYear}>{element.ModelYear}</option>)
+                    // setTableItems({ element.Value })
+                    return ([element.Variable, element.Value])
+                })
+
+                console.log(modelYears)
+                return (<div>{modelYears}</div>)
+            })
+            .then(data => {
+                setTableItems(data)
+            })
     }
+
+
+
 
     return (
         <div>
@@ -64,8 +96,15 @@ const Vinlookup = (props) => {
                 <input type="submit" value="Submit" />
             </form>
 
+
+            {/* {tableOfResults} */}
+            {tableItems}
+
+
+
         </div>
     );
+
 };
 
 export default Vinlookup;

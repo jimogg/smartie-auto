@@ -43,6 +43,9 @@ const YearMakeModel = (props) => {
     //---------------------- years
     let modelYears
     let options
+
+
+
     fetch(yearsUrl)
         .then(response => response.json())
         .then(data => {
@@ -100,10 +103,10 @@ const YearMakeModel = (props) => {
 
         else if (event.target[0].value !== 0 && event.target[1].value === 0) {
             setValidator("Please select a Make.")
-
+            year = event.target[0].value
             modelOptions = fetcher(makesUrl).Results.map((element, i) => {
                 return (<option value={element.Make}>{element.Make}</option>);
-                year = event.target[0].value
+
             })
 
         }
