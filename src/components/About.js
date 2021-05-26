@@ -6,7 +6,8 @@ const About = () => {
     return (
         <div>
             <h2>About Smartie Automotive</h2>
-            <p>Fugiat irure excepteur proident cillum eiusmod. Incididunt proident nisi officia ea nostrud cillum. Tempor commodo ad deserunt minim elit aliqua commodo ut adipisicing tempor amet ipsum. Duis sint laborum culpa magna cillum ex voluptate laboris nulla eu laboris proident eu laboris.</p>
+
+            <p>This automotive app can be used to decode a VIN number to see the original details of the new vehicle as provided by the  manufacturer. Additional features coming soon are the ability to search for recall data using Year Make and Model.</p>
         </div>
     );
 };

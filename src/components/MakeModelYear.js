@@ -130,7 +130,7 @@ const MakeModelYear = () => {
                 </select>
                 <input type="submit" value="submit" />
             </form> */}
-        </div><small>- This is a sample parsed from a json file but will be fetched from live API upon completion off extra features. Umm.. see VIN lookup -</small>
+        </div><small>- This is a sample parsed from a json file but will be fetched from live API upon completion of extra features. -</small>
         <br />
         {recallResults}
     </div>

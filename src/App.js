@@ -39,7 +39,7 @@ function App() {
         </Switch>
 
       </div>
-      <div className="footer">Footer</div>
+      <div className="footer"><small>VIN and recall information retrieved from the National Highway and Transportation Safety Administration's (NHTSA) public database. Copyright Smartie 2021</small></div>
     </div>
   );
 }
