@@ -9,6 +9,10 @@ import sampleRecallData from "../recall-yr-mk-model.json"
 const mmyRecallUrl = `https://vpic.nhtsa.dot.gov/api`
 const allModelYearsUrl = `https://api.nhtsa.gov/recalls/recallsByVehicle?make=acura&model=rdx&modelYear=2012`
 
+
+
+
+
 const makesOptions = staticMakesData.Results.map((element, i) => {
     return (<option value={element.Make}>{element.Make}</option>);
 })
@@ -106,9 +110,12 @@ const MakeModelYear = () => {
 
     }
 
+    // DISABLING NO-NAV SELECT BOXES AND BUTTON FOR PROJECT SUBMISSION
     return (<div>
         <div className="select-make-model-year">
-            <form onSubmit={handleSubmit}>
+
+
+            {/* <form onSubmit={handleSubmit}>
                 <select onChange={handleChange}>
                     <option value="0">Select Year</option>
                     {modelYears}
@@ -122,7 +129,8 @@ const MakeModelYear = () => {
                     {modelOptions}
                 </select>
                 <input type="submit" value="submit" />
-            </form></div>
+            </form> */}
+        </div><small>- This is a sample parsed from a json file but will be fetched from live API upon completion off extra features. Umm.. see VIN lookup -</small>
         <br />
         {recallResults}
     </div>
