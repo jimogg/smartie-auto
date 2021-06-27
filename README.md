@@ -4,7 +4,6 @@ This app aims to provide an easy way for users to decode VIN numbers for details
 Accessibility is enhance throughout by following best practices for screen readers and tablet/mobile platforms are accommodated by dynamic styling which rearranges screen items appropriately for ease of navigation and readability. React hooks are employed to update the UI with useful information, for example to dynamically show a user how many of the 17 VIN characters have been entered as they type.
 
 ## Technologies used
-- Node
 - React
 - JSX
 - Javascript
