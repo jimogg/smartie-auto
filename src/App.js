@@ -21,9 +21,9 @@ function App() {
       <div className="main">
 
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
+          <Route exact path="/" render={() => <Home />} />
+          {/* <Home />
+          </Route> */}
           <Route path="/vinlookup">
             <Vinlookup />
           </Route>

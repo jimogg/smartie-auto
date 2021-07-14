@@ -25,7 +25,7 @@ const modelsUrl = `https://api.nhtsa.gov/products/vehicle/models?modelYear=${yea
 
 const YearMakeModel = (props) => {
 
-    const [validator, setValidator] = useState("original state. Testing 123")
+    const [validator, setValidator] = useState("original validator state. Testing 123")
 
     const [year, setYear] = useState(0)
     const [make, setMake] = useState("")
@@ -33,61 +33,61 @@ const YearMakeModel = (props) => {
 
     const [modelYears, setModelYears] = useState("")
 
-    function fetcher(url, stateToUpdate) {
-
-        if (stateToUpdate === "year") {
-            setYear()
-        }
-        else if (stateToUpdate === "make") {
-
-        }
-        else {
-
-        }
 
 
+    async function yearsFetch() {
 
+        const years = await fetch(yearsUrl)
+        const response = await years.json()
+        const yearsAvail = await response.results.map((element) => {
+            console.log(element.modelYear)
+            return (<option value={element.modelYear}>{element.modelYear}</option>)
+        })
+        console.log(yearsAvail)
+        setModelYears(yearsAvail)
+        // return yearSelect
+        //error handling
 
-        fetch(yearsUrl)
-            .then(response => response.json())
-            .then(data => {
-
-
-                // map here
-                return data
-
-            })
-            .then();
-
-        return
     }
-    //---------------------- years
 
 
+    yearsFetch()
 
-    fetch(yearsUrl)
-        .then(response => response.json())
-        .then(data => {
-            let arr = []
+    async function makesFetch(makesUrl) {
 
-            const yearsAvail = data.Results.map((element) => {
-
-                // return arr.push(element.ModelYear)
-                // return arr.push();
-                return (<option value={element.ModelYear}>{element.ModelYear}</option>)
-
-
-            })
-
-            // return arr
-            return yearsAvail
+        const makes = await fetch(yearsUrl)
+        const response = await makes.json()
+        const makesAvail = await response.results.map((element) => {
+            console.log(element.modelYear)
+            return (<option value={element.modelYear}>{element.modelYear}</option>)
         })
-        .then(data => {
-            setModelYears(data)
+        console.log(makesAvail)
+        setMake(makesAvail)
+        // return yearSelect
+        //error handling
+
+    }
+    // makesFetch()
+
+
+    async function modelFetch() {
+
+        const models = await fetch(modelsUrl)
+        const response = await models.json()
+        const modelsAvail = await response.results.map((element) => {
+            console.log(element.modelYear)
+            return (<option value={element.modelYear}>{element.modelYear}</option>)
         })
+        console.log(modelsAvail)
+        setModelYears(modelsAvail)
+        // return yearSelect
+        //error handling
 
-
-
+    }
+    // run fetch years
+    // on select of year run fetch makes
+    // on select of makes run fetch models
+    // on select of models allow submit.
 
 
     //--------------- end years
@@ -104,31 +104,31 @@ const YearMakeModel = (props) => {
 
         // ---------- Validation of input fields ----------------
         // set option IDs ..... @reminder
-        if (event.target[0].value === 0) {
-            setValidator("Please select a Year first.")
-        }
+        // if (event.target[0].value === 0) {
+        //     setValidator("Please select a Year first.")
+        // }
 
-        else if (event.target[0].value !== 0 && event.target[1].value === 0) {
-            setValidator("Please select a Make.")
-            setYear(event.target[0].value)
-            modelOptions = fetcher(makesUrl).Results.map((element, i) => {
-                return (<option value={element.Make}>{element.Make}</option>);
+        // else if (event.target[0].value !== 0 && event.target[1].value === 0) {
+        //     setValidator("Please select a Make.")
+        //     setYear(event.target[0].value)
+        //     modelOptions = fetcher(makesUrl).Results.map((element, i) => {
+        //         return (<option value={element.Make}>{element.Make}</option>);
 
-            })
+        //     })
 
-        }
-        else if (event.target[0].value !== 0 && event.target[1].value !== 0 && event.target[2] === 0) {
-            setValidator("Please Select a Model.")
+        // }
+        // else if (event.target[0].value !== 0 && event.target[1].value !== 0 && event.target[2] === 0) {
+        //     setValidator("Please Select a Model.")
 
-            makesOptions = fetcher(modelsUrl).Results.map((element) => {
-                return (<option value={element.Model}>{element.Model}</option>);
-            })
-            setMake(event.target[1].value)
-        }
-        else {
-            setValidator("Press the Submit button to get your results.")
-            setModel(event.target[2].value)
-        }
+        //     makesOptions = fetcher(modelsUrl).Results.map((element) => {
+        //         return (<option value={element.Model}>{element.Model}</option>);
+        //     })
+        //     setMake(event.target[1].value)
+        // }
+        // else {
+        //     setValidator("Press Submit to get your results.")
+        //     setModel(event.target[2].value)
+        // }
         // console.log(event.target[0].value, event.target[0].value, event.target[0].value) //TEST
         // if event.target.value === 0, alert to select a make
     }
@@ -151,10 +151,19 @@ const YearMakeModel = (props) => {
                 <input type="submit" value="submit" />
             </form></div>
         <br />
+
+        {/* display to user instruction of what's needed */}
         {validator}
     </div>
 
     );
 };
+
+
+
+
+
+
+
 
 export default YearMakeModel;
