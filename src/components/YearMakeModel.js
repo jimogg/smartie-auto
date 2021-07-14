@@ -49,10 +49,10 @@ const YearMakeModel = (props) => {
         //error handling
 
     }
+    useEffect(() => {
 
-
-    yearsFetch()
-
+        yearsFetch()
+    }, [])
     async function makesFetch(makesUrl) {
 
         const makes = await fetch(yearsUrl)
