@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { useState, useEffect } from 'react'
-
+import staticMakes from "../makes-by-model-year.json"
+import staticModels from "../models-by-make-modelYear.json"
+import modelYears from "../model-years.json"
 
 /*
  This Component is a panel containing a form with html select inputs for Year/Make/model.
