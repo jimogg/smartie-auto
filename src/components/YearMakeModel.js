@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import staticMakes from "../makes-by-model-year.json"
 import staticModels from "../models-by-make-modelYear.json"
-import modelYears from "../model-years.json"
+import staticYears from "../model-years.json"
 
 /*
  This Component is a panel containing a form with html select inputs for Year/Make/model.
@@ -16,14 +16,13 @@ import modelYears from "../model-years.json"
 
 // const mmyRecallUrl = `https://vpic.nhtsa.dot.gov/api`
 // const allModelYearsUrl = `https://api.nhtsa.gov/recalls/recallsByVehicle?make=acura&model=rdx&modelYear=2012`
-let year
-let make
-let model
+// let year
+// let make
+// let model
 
+// const makesUrl = `https://api.nhtsa.gov/products/vehicle/makes?modelYear=2010&issueType=r`
+// const modelsUrl = `https://api.nhtsa.gov/products/vehicle/models?modelYear=2010&make=honda&issueType=r`
 const yearsUrl = `https://api.nhtsa.gov/products/vehicle/modelYears?issueType=r`
-const makesUrl = `https://api.nhtsa.gov/products/vehicle/makes?modelYear=${year}&issueType=r`
-const modelsUrl = `https://api.nhtsa.gov/products/vehicle/models?modelYear=${year}&make=${make}&issueType=r`
-
 
 const YearMakeModel = (props) => {
 
@@ -31,77 +30,95 @@ const YearMakeModel = (props) => {
 
     const [year, setYear] = useState(0)
     const [make, setMake] = useState("")
-    const [model, setModel] = useState("")
-
+    const [makeOptions, setMakeOptions] = useState("")
+    const [modelOptions, setModelOptions] = useState("")
     const [modelYears, setModelYears] = useState("")
 
-
+    const makesUrl = `https://api.nhtsa.gov/products/vehicle/makes?modelYear=${year}&issueType=r`
+    const modelsUrl = `https://api.nhtsa.gov/products/vehicle/models?modelYear=${year}&make=${make}&issueType=r`
 
     async function yearsFetch() {
+        /**
+         * fetches the model years available in nhtsa database
+         * populates the option values in YEAR select input box
+         */
 
         const years = await fetch(yearsUrl)
         const response = await years.json()
         const yearsAvail = await response.results.map((element) => {
-            console.log(element.modelYear)
+            // console.log(element.modelYear)
             return (<option value={element.modelYear}>{element.modelYear}</option>)
         })
-        console.log(yearsAvail)
         setModelYears(yearsAvail)
         // return yearSelect
         //error handling
 
     }
-    useEffect(() => {
 
+    useEffect(() => {
         yearsFetch()
     }, [])
-    async function makesFetch(makesUrl) {
 
-        const makes = await fetch(yearsUrl)
+    async function makesFetch() {
+        /**
+         * fetches the makes available for selected year
+         * populates the option values in MAKE select input box
+         */
+
+        const makes = await fetch(makesUrl)
         const response = await makes.json()
         const makesAvail = await response.results.map((element) => {
-            console.log(element.modelYear)
-            return (<option value={element.modelYear}>{element.modelYear}</option>)
+            // console.log(element.make)
+            return (<option value={element.make}>{element.make}</option>)
         })
         console.log(makesAvail)
-        setMake(makesAvail)
-        // return yearSelect
+        setMakeOptions(makesAvail)
         //error handling
 
     }
-    // makesFetch()
 
+    function activateGetMakes(event) {
+        console.log(event.target.value)
+        setYear(event.target.value)
+        makesFetch()
+    }
+    // useEffect(() => {
+    //     makesFetch()
+    // }, [])
 
+    /**
+     * fetches the models available for selected year & make
+     * populates the option values in MODEL select input box
+     */
     async function modelFetch() {
 
         const models = await fetch(modelsUrl)
         const response = await models.json()
         const modelsAvail = await response.results.map((element) => {
-            console.log(element.modelYear)
-            return (<option value={element.modelYear}>{element.modelYear}</option>)
+            console.log(element.model)
+            return (<option value={element.model}>{element.model}</option>)
         })
-        console.log(modelsAvail)
-        setModelYears(modelsAvail)
-        // return yearSelect
+
+        setModelOptions(modelsAvail)
+
         //error handling
 
     }
-    // run fetch years
-    // on select of year run fetch makes
-    // on select of makes run fetch models
-    // on select of models allow submit.
 
-
-    //--------------- end years
-    let makesOptions = ""
-    let modelOptions = ""
-
+    function activateGetModels(event) {
+        console.log(event.target.value)
+        setMake(event.target.value)
+        modelFetch()
+    }
+    // useEffect(() => {
+    //     modelFetch()
+    // }, [])
 
     function handleChange(event) {
-        setYear(event.target[0].value)
-        setMake(event.target[1].value)
-        setModel(event.target[2].value)
-
+        // setYear(event.target[0].value)
+        // setMake(event.target[1].value)
+        // setModel(event.target[2].value)
+        // if (event.target[0].value) { activateGetMakes() }
 
 
         // ---------- Validation of input fields ----------------
@@ -138,13 +155,13 @@ const YearMakeModel = (props) => {
     return (<div>
         <div className="select-make-model-year">
             <form onSubmit={props.submitFcn}>
-                <select onChange={handleChange}>
+                <select onChange={activateGetMakes}>
                     <option value="0">Select Year</option>
                     {modelYears}
                 </select>
-                <select onChange={handleChange}>
+                <select onChange={activateGetModels}>
                     <option value="0">Select Make</option>
-                    {makesOptions}
+                    {makeOptions}
                 </select>
                 <select onChange={handleChange}>
                     <option value="0">Select Model</option>
